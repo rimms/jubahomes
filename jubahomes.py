@@ -3,7 +3,6 @@ import yaml
 
 from jubatus.regression.client import regression
 from jubatus.regression.types import *
-from jubahomes.version import get_version
 
 def parse_options():
   parser = argparse.ArgumentParser()
@@ -20,15 +19,11 @@ def parse_options():
     metavar  = 'FILE',
     dest     = 'traindata'
   )
-  parser.add_argument(
-    '-v',
-    '--version',
-    action   = 'version',
-    version  = '%(prog)s ' + get_version()
-  )
   return parser.parse_args()
 
-def main():
+
+if __name__ == '__main__':
+
   args = parse_options()
 
   client = regression('localhost', 9199)
